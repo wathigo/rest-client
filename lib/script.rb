@@ -1,33 +1,37 @@
+# frozen_string_literal: true
+
 require 'rest-client'
 
 class GetInfo
-  attr_accessor :params
-  attr_accessor :uri
-  URL = 'https://www.bing.com/search?'
+  BASE_URL = 'https://www.bing.com/search?'
 
-  def initialize(argv)
-    @params = argv
-    @uri = nil
-  end
-
-  def create_params(arg)
-    arg.join("+")
-  end
-
-  def creat_url
-    @uri = URL + "q=" + create_params(@params)
+  def initialize(search_words)
+    @search_words = search_words
+    @url = nil
+    @params = nil
   end
 
   def search
-    RestClient.get @uri
+    RestClient.get url
+  end
+
+  private
+
+  def params
+    @params ||= create_params
+  end
+
+  attr_reader :search_words
+
+  def create_params
+    search_words.join('+')
+  end
+
+  def url
+    @url ||= create_url
+  end
+
+  def create_url
+    @url = BASE_URL + 'q=' + params
   end
 end
-
-# if (ARGV.length < 1)
-#   abort("This program requires a search phrase as a commandline argument")
-# else
-#   client = GetInfo.new(ARGV)
-#   client.creat_url
-#   result = client.search
-#   puts result.cookies
-# end
