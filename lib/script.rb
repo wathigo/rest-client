@@ -3,7 +3,8 @@
 require 'rest-client'
 
 class GetInfo
-  BASE_URL = 'http://example.com/nonexistent'
+  attr_reader :search_words
+  BASE_URL = 'https://www.bing.com/search?'
 
   def initialize(search_words)
     @search_words = search_words
@@ -20,8 +21,6 @@ class GetInfo
   def params
     @params ||= create_params
   end
-
-  attr_reader :search_words
 
   def create_params
     search_words.join('+')
