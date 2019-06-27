@@ -10,16 +10,12 @@ def main
     begin
       response = client.search
     rescue RestClient::ExceptionWithResponse => e
-      e.response
+      puts ("#{e}")
     end
-
-    case response.code
-    when 200
+    unless response == nil
       puts 'headers: ', response.headers
       puts 'In headers, cookies: ', response.cookies
       puts 'body: ', response.body
-    else
-      raise StandardError # error check =>
     end
   end
 end

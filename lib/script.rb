@@ -3,7 +3,7 @@
 require 'rest-client'
 
 class GetInfo
-  BASE_URL = 'https://www.bing.com/search?'
+  BASE_URL = 'http://example.com/nonexistent'
 
   def initialize(search_words)
     @search_words = search_words
