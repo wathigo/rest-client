@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'rest-client'
-require './../lib/script.rb'
+require File.expand_path('../lib/script.rb')
 
 def main
   if ARGV.empty?
@@ -12,11 +12,12 @@ def main
     rescue RestClient::ExceptionWithResponse => e
       puts ("#{e}")
     end
-    unless response == nil
-      puts 'headers: ', response.headers
-      puts 'In headers, cookies: ', response.cookies
-      puts 'body: ', response.body
-    end
+  end
+
+  unless response.nil?
+    puts 'headers: ', response.headers
+    puts 'In headers, cookies: ', response.cookies
+    puts 'body: ', response.body
   end
 end
 
