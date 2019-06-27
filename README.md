@@ -10,7 +10,7 @@ The project is part of a series of projects to be completed by students of [Micr
 
 ## Dependencies
 
-> Lib file location
+> Library file location
 
 ```sh
 ./lib/script.rb
@@ -20,6 +20,12 @@ The project is part of a series of projects to be completed by students of [Micr
 
 ```sh
 ./bin/main.rb
+```
+
+> Rspec file location
+
+```sh
+./spec/script_spec.rb
 ```
 
 ## Installation / Usage
@@ -36,10 +42,17 @@ $ git clone https://github.com/wathigo/rest-client.git
 $ cd rest-client
 ```
 
-> Run Rspec
+> Run main file with search words
 
 ```sh
+$ cd bin
 $ ruby main.rb [search1] [(option)search2] [...]
+```
+
+> To test with Rspec (In the root directory)
+
+```sh
+$ rspec
 ```
 
 ## Contributors
